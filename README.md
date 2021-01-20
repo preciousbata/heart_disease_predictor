@@ -1,4 +1,4 @@
-# heart_disease_predictor
+# Heart_Disease_Predictor
 
 This is a demo project to elaborate how Machine Learn Models are deployed on production using Flask API
 
