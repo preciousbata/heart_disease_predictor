@@ -1,14 +1,13 @@
+import os
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
-import logging
 
 
 app = Flask(__name__,template_folder='template')
 model = pickle.load(open('clf_model.pkl', 'rb'))
+port = int(os.environ.get('PORT', 5000))
 
-logging.basicConfig(filename='clf_log_file.log',level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(name)s  %(message)s')
 
 @app.route('/')
 def home():
@@ -33,7 +32,7 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port,debug=True)
 
 # if __name__ == "__main__":
 #     app.run(host='0.0.0.0',port=8080)
